@@ -1,14 +1,6 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
-import 'uno.css';
+import { createRoot } from 'react-dom/client';
+import App from './app';
 
-import App from './app/app';
-
-const root = ReactDOM.createRoot(
+createRoot(
   document.getElementById('root') as HTMLElement,
-);
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+).render(<App />);

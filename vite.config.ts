@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import unocss from 'unocss/vite';
+import autoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
   cacheDir: './node_modules/.vite/nx-test',
@@ -23,6 +24,16 @@ export default defineConfig({
       root: './',
     }),
     unocss(),
+    autoImport({
+      imports: [
+        'react',
+        {
+          react: ['Suspense'],
+          wouter: ['Route', 'Link', 'Switch', 'Redirect', 'useLocation', 'useRoute', 'useRouter'],
+        },
+      ],
+      dts: './src/auto-import.d.ts',
+    }),
   ],
 
   // Uncomment this if you are using workers.
