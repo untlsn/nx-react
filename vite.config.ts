@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
+import unocss from 'unocss/vite';
 
 export default defineConfig({
   cacheDir: './node_modules/.vite/nx-test',
@@ -21,6 +22,7 @@ export default defineConfig({
     viteTsConfigPaths({
       root: './',
     }),
+    unocss(),
   ],
 
   // Uncomment this if you are using workers.
